@@ -1,5 +1,9 @@
 # write your code here
-print("""
-X O X
-O X O
-X X O""")
+cells = input("Enter cells:")
+cells_tuple = tuple(cells)
+
+print("""---------
+| %s %s %s |
+| %s %s %s |
+| %s %s %s |
+---------""" % cells_tuple)
