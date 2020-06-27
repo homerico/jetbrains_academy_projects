@@ -122,7 +122,11 @@ It seems there will be more rabbits soon!"""
 
 # write your code here
 animals = [camel, lion, deer, goose, bat, rabbit]
-number = int(input("Which habitat # do you need?"))
-print(animals[number])
-print("""---
-The end of the program. To check another habitat restart the watcher please.""")
+while True:
+   input_ = input("Which habitat # do you need?")
+   if input_ != "exit":
+      print(animals[int(input_)])
+   else:
+      break
+
+print("See you!")
