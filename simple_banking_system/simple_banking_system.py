@@ -1,3 +1,7 @@
+# Write your code here
+import random
+
+
 class Card:
     def __init__(self, card_num, pin):
         self.card_number = card_num
@@ -5,15 +9,26 @@ class Card:
         self.balace = 0
 
 
+def checksum(original_card_num):
+    original_card_num = [int(num) for num in original_card_num]
+    for index, num in enumerate(original_card_num):
+        if index % 2 == 0:
+            original_card_num[index] *= 2
+        if original_card_num[index] > 9:
+            original_card_num[index] -= 9
+    return str((10 - (sum(original_card_num) % 10)) % 10)
+
+
 def create_account(customer_account_length=9):
     card_num = "400000"
+    pin = ''
     for i in range(customer_account_length):
         card_num += str(random.randint(0, 9))
-    card_num += "9"
-    pin = ''
+    card_num += checksum(card_num)
     for i in range(4):
         pin += str(random.randint(0, 9))
-    return int(card_num), pin
+    credit_cards.append(Card(card_num, pin))
+    return card_num, pin
 
 
 def log_in(user_card_num, user_pin):
@@ -38,7 +53,6 @@ while execution:
         break
     elif answer == 1:
         card_num, pin = create_account()
-        credit_cards.append(Card(card_num, pin))
         print(f"""Your card has been created
 Your card number:
 {card_num}
@@ -46,7 +60,7 @@ Your card PIN:
 {pin}
 """)
     else:
-        user_card_num = int(input("Enter your card number:\n"))
+        user_card_num = input("Enter your card number:\n")
         user_pin = input("Enter your PIN:\n")
         logged, card_id = log_in(user_card_num=user_card_num, user_pin=user_pin)
         while logged:
