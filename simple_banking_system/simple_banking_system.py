@@ -1,4 +1,4 @@
-# Write your code here
+import sqlite3
 import random
 
 
@@ -20,6 +20,8 @@ def checksum(original_card_num):
 
 
 def create_account(customer_account_length=9):
+    global id_
+    id_ += 1
     card_num = "400000"
     pin = ''
     for i in range(customer_account_length):
@@ -27,14 +29,23 @@ def create_account(customer_account_length=9):
     card_num += checksum(card_num)
     for i in range(4):
         pin += str(random.randint(0, 9))
-    credit_cards.append(Card(card_num, pin))
+    cur.execute("""
+    INSERT INTO card VALUES (
+        ?,
+        ?,
+        ?,
+        0
+    );""", (id_, card_num, pin))
+    conn.commit()
     return card_num, pin
 
 
 def log_in(user_card_num, user_pin):
-    user_permission = [card_position for card_position, card in enumerate(credit_cards)
-                       if user_card_num == card.card_number and user_pin == card.card_pin]
-    if len(user_permission) == 1:
+    cur.execute("SELECT id FROM card WHERE number=? AND pin=?", (user_card_num, user_pin))
+    conn.commit()
+    user_permission = cur.fetchall()
+    print(user_permission)
+    if len(user_permission) >= 1:
         print("You have successfully logged in!")
         return True, user_permission[0]
     else:
@@ -43,7 +54,18 @@ def log_in(user_card_num, user_pin):
 
 
 credit_cards = list()
+id_ = 0
 execution = True
+conn = sqlite3.connect('card.s3db')
+cur = conn.cursor()
+cur.execute("""
+CREATE TABLE IF NOT EXISTS card (
+    id INTEGER,
+    number TEXT,
+    pin TEXT,
+    balance INTEGER DEFAULT  0
+);""")
+conn.commit()
 while execution:
     answer = int(input("""1. Create an account
     2. Log into account
@@ -72,10 +94,12 @@ Your card PIN:
                 execution = False
                 break
             elif logged_input == 1:
-                print(f"Balance: {credit_cards[card_id].balace}")
+                cur.execute("""SELECT balance FROM card  where id=?""", card_id)
+                conn.commit()
+                print(cur.fetchall())
             else:
                 print("You have successfully logged out!")
                 break
-
+conn.close()
 print("Bye!")
 
