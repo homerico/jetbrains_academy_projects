@@ -1,3 +1,6 @@
+import os
+import sys
+
 
 nytimes_com = '''
 This New Liquid Is Magnetic, and Mesmerizing
@@ -34,12 +37,27 @@ Twitter and Square Chief Executive Officer Jack Dorsey
  Tuesday, a signal of the strong ties between the Silicon Valley giants.
 '''
 
+args = sys.argv
+if not os.path.exists(args[1]):
+    os.mkdir(args[1])
 while True:
-    url = input().split(".")
-    if url[0] == "bloomberg":
+    url = input().rsplit(".", 1)
+    url_file_path = args[1] + "/" + url[0] + ".txt"
+    if url[0] == "exit":
+        break
+    elif os.path.exists(url_file_path):
+        with open(url_file_path, 'r') as fread:
+            print(fread.read())
+    elif len(url) != 2:
+        print("error: incorrect URL")
+    elif url[0] == "bloomberg":
+        with open(url_file_path, "w") as fin:
+            fin.write(bloomberg_com)
         print(bloomberg_com)
     elif url[0] == "nytimes":
+        with open(url_file_path, "w") as fin:
+            fin.write(nytimes_com)
         print(nytimes_com)
-    elif url[0] == "exit":
-        break
+    else:
+        print("error: incorrect URL")
 
