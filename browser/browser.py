@@ -2,6 +2,38 @@ import os
 import sys
 
 
+def read_file(url_file_path):
+    with open(url_file_path, 'r') as fread:
+        return fread.read()
+
+
+def write_file(url_file_path, content):
+    with open(url_file_path, "w") as fin:
+        fin.write(content)
+
+
+def path(filename: str):
+    return args[1] + "/" + filename + ".txt"
+
+
+def is_url(_input: list):
+    if _input[0] in possible_sites:
+        return True
+    return False
+
+
+def print_website(website: str, is_back: bool = False):
+    path_file = path(website)
+    if os.path.exists(path_file):
+        print(read_file(path_file))
+    elif website in possible_sites:
+        content = possible_sites[website]
+        write_file(path_file, content)
+        print(content)
+    if not is_back:
+        browse_history.append(website)
+
+
 nytimes_com = '''
 This New Liquid Is Magnetic, and Mesmerizing
 
@@ -17,7 +49,6 @@ Jessica Wade has added nearly 700 Wikipedia biographies for
  years.
 
 '''
-
 bloomberg_com = '''
 The Space Race: From Apollo 11 to Elon Musk
 
@@ -36,28 +67,24 @@ Twitter and Square Chief Executive Officer Jack Dorsey
  addressed Apple Inc. employees at the iPhone maker’s headquarters
  Tuesday, a signal of the strong ties between the Silicon Valley giants.
 '''
-
 args = sys.argv
+browse_history = []
+possible_sites = {"bloomberg": bloomberg_com, "nytimes": nytimes_com}
+
 if not os.path.exists(args[1]):
     os.mkdir(args[1])
 while True:
-    url = input().rsplit(".", 1)
-    url_file_path = args[1] + "/" + url[0] + ".txt"
-    if url[0] == "exit":
+    _input = input().rsplit(".", 1)
+    if is_url(_input):
+        print_website(_input[0])
+    elif _input[0] == "exit":
         break
-    elif os.path.exists(url_file_path):
-        with open(url_file_path, 'r') as fread:
-            print(fread.read())
-    elif len(url) != 2:
-        print("error: incorrect URL")
-    elif url[0] == "bloomberg":
-        with open(url_file_path, "w") as fin:
-            fin.write(bloomberg_com)
-        print(bloomberg_com)
-    elif url[0] == "nytimes":
-        with open(url_file_path, "w") as fin:
-            fin.write(nytimes_com)
-        print(nytimes_com)
+    elif _input[0] == "back":
+        try:
+            browse_history.pop()
+            print_website(browse_history.pop(), is_back=True)
+        except IndexError:
+            pass
     else:
-        print("error: incorrect URL")
+        print("error: invalid url")
 
