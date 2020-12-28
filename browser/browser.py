@@ -2,6 +2,7 @@ import os
 import sys
 import requests
 from bs4 import BeautifulSoup
+import colorama as color
 
 
 def read_file(url_file_path):
@@ -27,7 +28,15 @@ def is_url(_input: list) -> bool:
 def clean_content(content):
     soup = BeautifulSoup(content, "html.parser")
     soup = soup.find_all(tags)
-    soup = [x.text for x in soup]
+    aux = []
+    for single_tag in soup:
+        text = single_tag.text
+        if single_tag.name == "a":
+            print(color.Fore.BLUE + text)
+        else:
+            print(text)
+        aux.append(text)
+    soup = aux
     soup = "\n".join(soup)
     return soup
 
@@ -41,14 +50,15 @@ def print_website(website: list, is_back: bool = False):
         url = "https://" + ".".join(website)
         content = requests.get(url, headers=headers).text
         content = clean_content(content)
-        print(content)
         write_file(file_path, content)
 
     if not is_back:
         browse_history.append(website)
 
 
+color.init(autoreset=True)
 args = sys.argv
+args.append("teste_tab")
 browse_history = []
 tags = ["p", "h1", "h2", "h3", "h4", "h5", "h6", "a", "ul", "ol", "li"]
 
@@ -69,4 +79,5 @@ while True:
             pass
     else:
         print("error: invalid url")
+color.deinit()
 
