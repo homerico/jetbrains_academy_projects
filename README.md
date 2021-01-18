@@ -17,7 +17,8 @@ A princípio, a plataforma oferece 4 *tracks*, estas são:
 | [Tic-Tac-Toe](https://github.com/homerico/jetbrains_academy_projects/blob/master/tic_tac_toe/summary.md) | Médio | Completo|
 | [Simple Banking System](https://github.com/homerico/jetbrains_academy_projects/blob/master/simple_banking_system/summary.md) | Médio | Completo|
 | [Text-Based Browser](https://github.com/homerico/jetbrains_academy_projects/blob/master/browser/summary.md) | Difícil | Completo|
-| [To-Do List](https://github.com/homerico/jetbrains_academy_projects/blob/master/to_do_list/summary.md) | Difícil | Em andamento |
+| [To-Do List](https://github.com/homerico/jetbrains_academy_projects/blob/master/to_do_list/summary.md) | Difícil | Completo |
+| [To-Do List](https://github.com/homerico/jetbrains_academy_projects/blob/master/password_hacker/summary.md) | Desafiador | Em andamento |
 
 *Segundo o JetBrains Academy
 
