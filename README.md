@@ -14,7 +14,7 @@ A princípio, a plataforma oferece 4 *tracks*, estas são:
 | Projeto | Dificuldade* | Andamento |
 |--|--|--|
 | [Zookepeer](https://github.com/homerico/jetbrains_academy_projects/blob/master/zookeeper/summary.md) | Fácil | Completo |
-| [Tic-Tac-Toe](https://github.com/homerico/jetbrains_academy_projects/blob/master/tic_tac_toe/summary.md) | Médio | Completo|
+| [Tic-Tac-Toe](https://github.com/homerico/jetbrains_academy_projects/blob/master/tic_tac_toe/summary.md) | Fácil | Completo|
 | [Simple Banking System](https://github.com/homerico/jetbrains_academy_projects/blob/master/simple_banking_system/summary.md) | Médio | Completo|
 | [Text-Based Browser](https://github.com/homerico/jetbrains_academy_projects/blob/master/browser/summary.md) | Difícil | Completo|
 | [To-Do List](https://github.com/homerico/jetbrains_academy_projects/blob/master/to_do_list/summary.md) | Difícil | Completo |
