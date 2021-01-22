@@ -2,9 +2,13 @@
 
 O objetivo é desenvolver uma ferramenta de criação de cartões de crédito, armazenando-los em um banco de dados relacional. Com a criação de um cartão de crédito há a possibilidade de fazer *log in* na conta do cartão e creditar, depositar ou transferir dinheiro. Há a possibilidade de **deletar** a conta, tanto no programa quanto no banco de dados, respeitando a [Lei Geral de Proteção de Dados Pessoais (LGPD)](http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/L13709.htm) 😉.
 
-## Aprendizagem
+## Aprendizado
 
 O objetivo faz com que o projeto seja robusto com a utilização de bastante recursos do Python, como classes e instâncias, biblioteca Random e SQLite.
+
+## Tecnologia abordada
+
+ - SQL
 
 ## Exemplo
 
@@ -141,9 +145,5 @@ O objetivo faz com que o projeto seja robusto com a utilização de bastante rec
 
 	>0
 	Bye!
-
-## Tecnologia abordada
-
- - SQL
 
 

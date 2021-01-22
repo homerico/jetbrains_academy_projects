@@ -2,7 +2,7 @@
 
 O objetivo é criar uma ferramenta que ajude um guarda do zoológico a monitorar os animais.
 
-## Aprendizagem
+## Aprendizado
 
 *Zookeeper* é um projeto de caráter introdutório que visa ensinar o básico da sintaxe do Python usando listas, variáveis e expressões como *if* e *while*.
 

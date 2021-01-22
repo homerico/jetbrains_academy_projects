@@ -11,7 +11,7 @@ A princípio, a plataforma oferece 4 *tracks*, estas são:
 
 ## Resumos
 
-| Projeto | Dificuldade* | Andamento |
+| Projeto | Dificuldade* | Etapa |
 |--|--|--|
 | [Zookepeer](https://github.com/homerico/jetbrains_academy_projects/blob/master/zookeeper/summary.md) | Fácil | Completo |
 | [Tic-Tac-Toe](https://github.com/homerico/jetbrains_academy_projects/blob/master/tic_tac_toe/summary.md) | Fácil | Completo|

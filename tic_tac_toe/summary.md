@@ -2,7 +2,7 @@
 
 O objetivo é desenvolver o **jogo da velha** (*tic-tac-toe*, em inglês).
 
-## Aprendizagem
+## Aprendizado
 
 *Tic-Tac-Toe* introduz: 
 - formas de processar o *input* do usuário; 
