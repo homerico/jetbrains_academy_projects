@@ -4,7 +4,7 @@ O objetivo é desenvolver uma ferramenta de criação de cartões de crédito, a
 
 ## Aprendizado
 
-O objetivo faz com que o projeto seja robusto com a utilização de bastante recursos do Python, como classes e instâncias, biblioteca Random e SQLite.
+O objetivo faz com que o projeto seja robusto com a utilização de bastante recursos do Python, como classes e instâncias, biblioteca `random` e SQLite.
 
 ## Tecnologia abordada
 
@@ -12,7 +12,7 @@ O objetivo faz com que o projeto seja robusto com a utilização de bastante rec
 
 ## Exemplo
 
-> O símbolo de maior que seguido por um espaço (>) representa a entrada do usuário. 
+> O símbolo de maior que é seguido por um espaço (> ) representa a entrada do usuário. 
 
 	1. Create an account
 	2. Log into account

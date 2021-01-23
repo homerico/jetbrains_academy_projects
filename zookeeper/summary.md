@@ -8,7 +8,7 @@ O objetivo é criar uma ferramenta que ajude um guarda do zoológico a monitorar
 
 ## Exemplo
 
-> O símbolo de maior que seguido por um espaço (>) representa a entrada do usuário. 
+> O símbolo de maior que é seguido por um espaço (> ) representa a entrada do usuário. 
 
 	Please enter the number of the habitat you would like to view: > 3
 	
